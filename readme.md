@@ -26,7 +26,7 @@ News Explorer - сервис по поиску новостей. Здесь вы
 
 Теперь можно искать и сохранять новости в одном месте.
 
-Демо проекта - https://github.com/alesyatyzhikova/news-explorer.git
+Демо проекта - https://alesyatyzhikova.github.io/news-explorer
 
 
 ###### Планы по последующей доработке ######
