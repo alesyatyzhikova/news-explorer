@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/alesyatyzhikova/news-frontend/issues"
   },
-  "homepage": "https://alesyatyzhikova.github.io/news-frontend",
+  "homepage": "https://github.com/alesyatyzhikova/news-explorer.git",
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "@babel/core": "7.9.0",
