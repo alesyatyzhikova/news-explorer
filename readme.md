@@ -13,7 +13,7 @@
 ###### Для установки и запуска проекта локально необходимо: ######
 
 * Установить Node.js (если не установлено)
-* Клонировать репозиторий: git clone https://github.com/alesyatyzhikova/news-frontend.git
+* Клонировать репозиторий: git clone https://github.com/alesyatyzhikova/news-explorer.git
 * Установить зависимости: npm init => npm install
 * Запустить проект в режиме разработки с hot reload - npm run dev
 * Сборка продакшн версии проекта - npm run build
