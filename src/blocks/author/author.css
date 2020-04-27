@@ -1,0 +1,26 @@
+@import url('./__title/author__title.css');
+@import url('./__text/author__text.css');
+@import url('./__image/author__image.css');
+@import url('./__info/author__info.css');
+
+.author {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+  .author {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .author {
+    padding-top: 32px;
+    padding-bottom: 80px;
+    flex-direction: column;
+  }
+}

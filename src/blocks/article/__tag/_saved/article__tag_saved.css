@@ -1,0 +1,7 @@
+.article__tag_saved {
+  background-image: url(../../../../images/save-saved.svg);
+}
+
+.article__tag_saved:hover {
+  background-image: url(../../../../images/save-saved.svg);
+}

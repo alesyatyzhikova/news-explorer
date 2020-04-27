@@ -1,0 +1,24 @@
+@import url('./_light/header__link_light.css');
+@import url('./_dark/header__link_dark.css');
+
+.header__link {
+  text-decoration: none;
+  display: block;
+  padding-bottom: 26px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__link {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__link {
+    font-size: 18px;
+    line-height: 56px;
+  }
+}

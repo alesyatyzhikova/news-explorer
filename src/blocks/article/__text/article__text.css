@@ -1,0 +1,16 @@
+.article__text {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  height: auto;
+  max-height: 110px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: wrap;
+}
+
+@media screen and (max-width: 1024px) {
+  .article__text {
+    max-height: 88px;
+  }
+}

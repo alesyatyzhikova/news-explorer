@@ -1,0 +1,3 @@
+.footer__social_github::before {
+  background-image: url(../../../../images/gh.svg);
+}

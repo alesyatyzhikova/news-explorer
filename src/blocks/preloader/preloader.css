@@ -1,0 +1,8 @@
+@import url('./__text/preloader__text.css');
+@import url('./__circle/preloader__circle.css');
+
+.preloader {
+  position: relative;
+  margin: 0 auto;
+  display: none;
+}

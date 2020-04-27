@@ -1,0 +1,11 @@
+@import url('./_light/header__logout_light.css');
+@import url('./_dark/header__logout_dark.css');
+
+.header__logout {
+  background-color: transparent;
+  padding: 12px 37px 12px 19px;
+}
+
+.header__logout:hover {
+  background-color: transparent;
+}

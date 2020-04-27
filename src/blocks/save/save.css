@@ -1,0 +1,22 @@
+@import url('./__text/save__text.css');
+@import url('./__subtitle/save__subtitle.css');
+@import url('./__title/save__title.css');
+
+.save {
+  font-family: 'Roboto';
+  padding-top: 120px;
+  padding-bottom: 56px;
+}
+
+@media screen and (max-width: 1024px) {
+  .save {
+    padding-top: 90px;
+    padding-bottom: 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .save {
+    padding-top: 64px;
+  }
+}

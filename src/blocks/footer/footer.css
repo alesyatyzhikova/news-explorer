@@ -1,0 +1,21 @@
+@import url('./__copyright/footer__copyright.css');
+@import url('./__link/footer__link.css');
+@import url('./__links/footer__links.css');
+@import url('./__nav/footer__nav.css');
+@import url('./__social/footer__social.css');
+@import url('./__socials/footer__socials.css');
+
+.footer {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  padding-top: 30px;
+  padding-bottom: 26px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+}

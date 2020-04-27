@@ -1,0 +1,20 @@
+.save__text {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.save__text span {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+  .save__text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .save__text {
+    font-size: 18px;
+  }
+}

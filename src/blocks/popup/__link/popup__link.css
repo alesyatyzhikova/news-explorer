@@ -1,0 +1,12 @@
+@import url('./_success/popup__link_success.css');
+
+.popup__link {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  color: #2f71e5;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}

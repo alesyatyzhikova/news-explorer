@@ -1,0 +1,11 @@
+.article__tag_delete {
+  background-image: url(../../../../images/basket.svg);
+  background-size: 18px 19px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+}
+
+.article__tag_delete:hover {
+  background-image: url(../../../../images/basket-hover.svg);
+}

@@ -1,0 +1,14 @@
+.article__wrapper {
+  padding: 20px 24px 24px;
+  min-height: 304px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1024px) {
+  .article__wrapper {
+    min-height: 270px;
+    padding: 16px;
+  }
+}

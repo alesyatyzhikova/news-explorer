@@ -1,0 +1,16 @@
+.article__date {
+  color: #B6BCBF;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+  font-family: 'Source Sans Pro', 'Arial', sans-serif;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 12px;
+}
+
+@media screen and (max-width: 767px) {
+  .article__date {
+    margin-bottom: 10px;
+  }
+}
