@@ -1,23 +1,22 @@
-.article__image {
-  width: 400px;
+.article__nav {
+  width: 100%;
   height: 272px;
-  position: absolute;
-  left: 0;
-  top: 0;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 @media screen and (max-width: 1024px) {
-  .article__image {
+  .article__nav {
     height: 150px;
-    width: 224px;
+    padding: 8px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .article__image {
-    width: 288px;
+  .article__nav {
     height: 196px;
   }
 }

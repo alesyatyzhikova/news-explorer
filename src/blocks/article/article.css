@@ -1,5 +1,6 @@
 @import url('./__title/article__title.css');
 @import url('./__date/article__date.css');
+@import url('./__nav/article__nav.css');
 @import url('./__image/article__image.css');
 @import url('./__info/article__info.css');
 @import url('./__source/article__source.css');
