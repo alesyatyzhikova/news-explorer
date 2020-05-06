@@ -2,11 +2,17 @@
 @import url('./_form/popup__content_form.css');
 
 .popup__content {
+  min-height: 383px;
+  padding: 34px 36px 28px;
   width: 430px;
   box-sizing: border-box;
   background-color: #fff;
   border-radius: 16px;
   position: relative;
+}
+
+.popup_hidden {
+  display: none;
 }
 
 @media screen and (max-width: 767px) {

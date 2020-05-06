@@ -207,69 +207,72 @@
     </div>
   </footer>
 
-  <div class="popup__wrapper">
-    <div class="popup popup__login">
-      <div class="popup__content popup__content_form">
-        <button class="popup__close"></button>
-        <h3 class="popup__title">
-          Вход
-        </h3>
-        <form action="POST" class="popup__form">
-          <label class="popup__label" for="enter-email">Email</label>
-          <input class="popup__input" type="email" placeholder="Введите почту" id="enter-email" required>
-          <span class="popup__error popup__error_input"></span>
-          <label class="popup__label" for="enter-password">Пароль</label>
-          <input class="popup__input" type="password" placeholder="Введите пароль" id="enter-password" required>
-          <span class="popup__error popup__error_input"></span>
-          <button class="button popup__button" disabled>Войти</button>
-        </form>
-        <p class="popup__text">или
-          <button class="popup__link">Зарегистрироваться</button>
-        </p>
-      </div>
-    </div>
+    <div class="popup">
+  
+      <div class="popup__content">
+        
+        <div class="popup__inner">
 
-    <div class="popup popup__registration">
-      <div class="popup__content popup__content_form">
-        <button class="popup__close"></button>
-        <h3 class="popup__title">
-          Регистрация
-        </h3>
-        <form action="POST" class="popup__form">
-          <label class="popup__label" for="registration-email">Email</label>
-          <input class="popup__input" type="email" placeholder="Введите почту" id="registration-email" required>
-          <span class="popup__error popup__error_input"></span>
-          <label class="popup__label" for="registration-password">Пароль</label>
-          <input class="popup__input" type="password" placeholder="Введите пароль" minlength="8" id="registration-password" required>
-          <span class="popup__error popup__error_input"></span>
-          <label class="popup__label" for="registration-name">Имя</label>
-          <input class="popup__input" type="text" placeholder="Введите свое имя" minlength="2" maxlength="30" id="registration-name" required>
-          <span class="popup__error popup__error_input"></span>
-          <span class="popup__error popup__error_common"></span>
-          <button class="button popup__button" disabled>
-            Зарегистрироваться
-          </button>
-        </form>
-        <p class="popup__text">или
-          <button class="popup__link">Войти</button>
-        </p>
-      </div>
-    </div>
+          <div class="popup__login popup-box popup_hidden">
+            <button class="popup__close"></button>
+            <h3 class="popup__title">
+              Вход
+            </h3>
+            <form class="popup__form" method="POST" name="login">
+              <label class="popup__label" for="enter-email">Email</label>
+              <input class="popup__input" type="email" placeholder="Введите почту" id="enter-email" required>
+              <span class="popup__error popup__error_input"></span>
+              <label class="popup__label" for="enter-password">Пароль</label>
+              <input class="popup__input" type="password" placeholder="Введите пароль" id="enter-password" required>
+              <span class="popup__error popup__error_input"></span>
+              <button type="submit" class="button popup__button" disabled>Войти</button>
+            </form>
+          </div>
 
-    <div class="popup popup__success">
-      <div class="popup__content popup__content_success">
-        <button class="popup__close"></button>
-        <div class="success">
-          <h3 class="success__title">
-            Пользователь успешно зарегистрирован!
-          </h3>
-          <button class="success__link">
-            Выполнить вход
-          </button>
+          <div class="popup__registration popup-box popup_hidden">
+            <button class="popup__close"></button>
+            <h3 class="popup__title">
+              Регистрация
+            </h3>
+            <form class="popup__form popup__form_registration" method="POST" name="reg">
+              <label class="popup__label" for="registration-email">Email</label>
+              <input class="popup__input" type="email" placeholder="Введите почту" name="email" id="registration-email" required>
+              <span class="popup__error popup__error_input"></span>
+              <label class="popup__label" for="registration-password">Пароль</label>
+              <input class="popup__input" type="password" placeholder="Введите пароль" name="password" minlength="8" id="registration-password" required>
+              <span class="popup__error popup__error_input"></span>
+              <label class="popup__label" for="registration-name">Имя</label>
+              <input class="popup__input" type="text" placeholder="Введите свое имя" name="name" minlength="2" maxlength="30" id="registration-name" required>
+              <span class="popup__error popup__error_input"></span>
+              <span class="popup__error popup__error_common"></span>
+              <button type="submit" class="button popup__button">
+                Зарегистрироваться
+              </button>
+            </form>
+          </div>
         </div>
+
+        <p class="popup__text">или
+          <button class="popup__link popup__link_hidden popup__auth-button">Войти</button>
+          <button class="popup__link popup__link_hidden popup__reg-button">Зарегистрироваться</button>
+        </p>
       </div>
     </div>
-  </div>
+
+
+    <!-- <div class="popup__success">
+      <button class="popup__close"></button>
+      <div class="success">
+        <h3 class="success__title">
+          Пользователь успешно зарегистрирован!
+        </h3>
+        <button class="success__link">
+          Выполнить вход
+        </button>
+      </div>
+    </div> -->
+    </div>
+ 
 </div>
     <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
