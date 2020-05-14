@@ -181,6 +181,9 @@ searchForm.addEventListener('submit', (e) => {
 
       moreButton.addEventListener('click', (e) => {
         array.renderResults();
+        if(logged) {
+          article.renderIconAuth()   
+      }
 
         if(res.articles.length === 0) { 
           e.target.classList.add('articles__more-button_hidden')
