@@ -31,8 +31,6 @@ export default class NewsCardList {
 
   renderSavedResults() {
     const article = new NewsCard();
-    // this.render();
-    // this.clear();
     this.array.forEach(card => {
       this.container.insertAdjacentHTML('beforeend', article.createSave(card));
       
