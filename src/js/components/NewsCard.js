@@ -80,6 +80,12 @@ export default class NewsCard {
     })
   }
 
+  renderIconNotAuth() {
+    document.querySelectorAll('.article__tag_save').forEach(item => {
+      item.classList.add('article__tag_save-not-auth');
+    })
+  }
+
   renderIconForSave(event) {
     event.target.classList.add('article__tag_saved')
   }

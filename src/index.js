@@ -127,7 +127,6 @@ regButton.addEventListener('click', registration);
   // Аутентификация
   popupAuth.form.addEventListener('submit', function (event) {
     event.preventDefault();
-    loginFormClass.lockButton(event.currentTarget); 
     api.login('/signin', popupAuth.form.elements.email.value, popupAuth.form.elements.password.value)
     .then(res => {
       if(res.ok) {
@@ -144,18 +143,18 @@ regButton.addEventListener('click', registration);
       popupAuth.close();
     })
     .then(() => {
-      document.querySelectorAll('.article__tag_save').forEach(item => item.classList.remove('article__tag_save-not-auth'))
+      article.renderIconAuth();
       api.getUserData('/users/me')
       .then((res) => {
         localStorage.setItem("name", res.name)
         headerLogoutButton.textContent = res.name
+        location.reload();
       })
       .catch((err) => {
         console.log('Ошибка', err.status)
       })
      })
     .catch(err => console.log(err)) 
-    loginFormClass.unlockButton(event.currentTarget); 
    })
 
 // Поиск
@@ -174,16 +173,18 @@ searchForm.addEventListener('submit', (e) => {
       const array = new NewsCardList(res.articles, wrapper);
       array.clear();
       array.renderResults();
+      
 
       if(logged) {
-        article.renderIconAuth()   
-    }
+        article.renderIconAuth();  
+      }
 
       moreButton.addEventListener('click', (e) => {
         array.renderResults();
+
         if(logged) {
           article.renderIconAuth()   
-      }
+        }
 
         if(res.articles.length === 0) { 
           e.target.classList.add('articles__more-button_hidden')
