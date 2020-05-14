@@ -7,15 +7,15 @@
   <meta name="author" content="Алеся Тужикова">
   <meta name="description" content="News Explorer - поиск новостей c разных ресурсов" />
   <link rel="icon" type="image/svg" href="./images/favicon.svg">
-  <link rel="stylesheet" href="../articles/articles.91bb9df7df3189b0cafc.css">
+  <link rel="stylesheet" href="../articles/articles.1a411834722837437ec3.css">
 </head>
 <body>
   <div class="root">
     <header class="header header_light">
       <div class="header__wrapper root__section">
         <p class="header__logo header__logo_black">NewsExplorer</p>
-        <button class="header__menu-button header__menu-button_open header__menu-button_open_dark"></button>
-        <ul class="header__nav">
+        <button class="header__menu-button header__menu-button_open_dark"></button>
+        <ul class="header__nav header__nav_hidden-mobile">
           <li class="header__item">
             <a href="../" class="header__link header__link_dark">Главная</a>
           </li>
@@ -23,7 +23,7 @@
             <a href="./" class="header__link header__link_dark_active">Сохраненные статьи</a>
           </li>
           <li class="header__item">
-            <button class="button header__button header__logout header__logout_dark">Грета</button>
+            <button class="button header__button header__logout header__logout_dark"></button>
           </li>
         </ul>
       </div>
@@ -35,181 +35,28 @@
           Сохранённые статьи
         </h2>
         <p class="title save__subtitle">
-          Грета, у вас 5 сохранённых статей
+          <span class="user-name"></span>, у вас <span class="number"></span> сохранённых статей
         </p>
         <p class="save__text">
-          По ключевым словам: <span>Природа, Тайга</span> и <span>2 другим</span>
+          По ключевым словам: <span></span><span class="other"></span>
         </p>
       </section>
-  
+
+
       <section class="articles">
+
+        <div class="not-found not-found_hidden">
+          <span class="not-found__icon"></span>
+          <p class="title not-found__title">
+            Ничего не найдено
+          </p>
+          <p class="not-found__text">
+            У вас пока нет сохраненных статей.
+          </p>
+        </div>
+  
         <div class="articles__section root__section">
-          <div class="articles__wrapper">
-            <a class="article" href="https://meduza.io/shapito" target="_blank">
-              <div class="article__nav">
-                <img class="article__image" src=".././images/article.jpg" alt="Изображение для новости">
-                <div class="article__tags">
-                  <span class="article__tag article__tag_delete"></span>
-                  <span class="text article__tag article__tag_message">
-                    Убрать из сохранённых
-                  </span>
-                  <span class="text article__tag article__tag_keyword">
-                    Природа
-                  </span>
-                </div>
-              </div>
-              <div class="article__wrapper">
-                <div class="article__info">
-                  <span class="text article__date">
-                    2 августа, 2019
-                  </span>
-                  <h3 class="title article__title">
-                    Национальное достояние – парки
-                  </h3>
-                  <p class="text article__text">
-                    В 2016 году Америка отмечала важный юбилей: 
-                    сто лет назад здесь начала складываться система национальных парков – 
-                    охраняемых территорий, 
-                    где и сегодня каждый может приобщиться к природе.
-                  </p>
-                </div>
-                <span class="title article__source">
-                  Лента.ру
-                </span>
-              </div>
-            </a>
-            <a class="article" href="https://meduza.io/shapito" target="_blank">
-              <div class="article__nav">
-                <img class="article__image" src=".././images/articletwo.jpg" alt="Изображение для новости">
-                <div class="article__tags">
-                  <span class="article__tag article__tag_delete"></span>
-                  <span class="text article__tag article__tag_message">
-                    Убрать из сохранённых
-                  </span>
-                  <span class="text article__tag article__tag_keyword">
-                    Природа
-                  </span>
-                </div>
-              </div>
-              <div class="article__wrapper">
-                <div class="article__info">
-                  <span class="text article__date">
-                    2 августа, 2019
-                  </span>
-                  <h3 class="title article__title">
-                    Лесные огоньки: история одной фотографии
-                  </h3>
-                  <p class="text article__text">
-                    Фотограф отвлеклась от освещения суровой политической 
-                    реальности Мексики, чтобы запечатлеть ускользающую 
-                    красоту одного из местных чудес природы.
-                  </p>
-                </div>
-                <span class="title article__source">
-                  Медуза
-                </span>
-              </div>
-            </a>
-            <a class="article" href="https://meduza.io/shapito" target="_blank">
-              <div class="article__nav">
-                <img class="article__image" src=".././images/articlethree.jpg" alt="Изображение для новости">
-                <div class="article__tags">
-                  <span class="article__tag article__tag_delete"></span>
-                  <span class="text article__tag article__tag_message">
-                    Убрать из сохранённых
-                  </span>
-                  <span class="text article__tag article__tag_keyword">
-                    Природа
-                  </span>
-                </div>
-              </div>
-              <div class="article__wrapper">
-                <div class="article__info">
-                  <span class="text article__date">
-                    2 августа, 2019
-                  </span>
-                  <h3 class="title article__title">
-                    «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-                  </h3>
-                  <p class="text article__text">
-                    Знаменитый фотограф снимает первозданные леса России, 
-                    чтобы рассказать о необходимости их сохранения. В
-                     этот раз он отправился в Двинско-Пинежскую тайгу, гдe
-                     Знаменитый фотограф
-                  </p>
-                </div>
-                <span class="title article__source">
-                  Риа
-                </span>
-              </div>
-            </a>
-            <a class="article" href="https://meduza.io/shapito" target="_blank">
-              <div class="article__nav">
-                <img class="article__image" src=".././images/article.jpg" alt="Изображение для новости">
-                <div class="article__tags">
-                  <span class="article__tag article__tag_delete"></span>
-                  <span class="text article__tag article__tag_message">
-                    Убрать из сохранённых
-                  </span>
-                  <span class="text article__tag article__tag_keyword">
-                    Природа
-                  </span>
-                </div>
-              </div>
-              <div class="article__wrapper">
-                <div class="article__info">
-                  <span class="text article__date">
-                    2 августа, 2019
-                  </span>
-                  <h3 class="title article__title">
-                    «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-                  </h3>
-                  <p class="text article__text">
-                    Знаменитый фотограф снимает первозданные леса России, 
-                    чтобы рассказать о необходимости их сохранения. В
-                     этот раз он отправился в Двинско-Пинежскую тайгу, гдe
-                     Знаменитый фотограф
-                  </p>
-                </div>
-                <span class="title article__source">
-                  Риа
-                </span>
-              </div>
-            </a>
-            <a class="article" href="https://meduza.io/shapito" target="_blank">
-              <div class="article__nav">
-                <img class="article__image" src=".././images/articletwo.jpg" alt="Изображение для новости">
-                <div class="article__tags">
-                  <span class="article__tag article__tag_delete"></span>
-                  <span class="text article__tag article__tag_message">
-                    Убрать из сохранённых
-                  </span>
-                  <span class="text article__tag article__tag_keyword">
-                    Природа
-                  </span>
-                </div>
-              </div>
-              <div class="article__wrapper">
-                <div class="article__info">
-                  <span class="text article__date">
-                    2 августа, 2019
-                  </span>
-                  <h3 class="title article__title">
-                    «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-                  </h3>
-                  <p class="text article__text">
-                    Знаменитый фотограф снимает первозданные леса России, 
-                    чтобы рассказать о необходимости их сохранения. В
-                     этот раз он отправился в Двинско-Пинежскую тайгу, гдe
-                     Знаменитый фотограф
-                  </p>
-                </div>
-                <span class="title article__source">
-                  Риа
-                </span>
-              </div>
-            </a>
-            </div>
+          <div class="articles__wrapper articles__wrapper_saved"></div>
         </div>
       </section>
     </main>
@@ -230,6 +77,6 @@
       </div>
     </footer>
   </div>
-  <script src="../articles/articles.19a631517f6d367c6073.js"></script>
+  <script src="../articles/articles.92db8ea2872738ee030a.js"></script>
 </body>
 </html>

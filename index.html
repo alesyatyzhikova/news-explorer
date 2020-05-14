@@ -7,15 +7,15 @@
   <meta name="author" content="Алеся Тужикова">
   <meta name="description" content="News Explorer - поиск новостей c разных ресурсов">
   <link rel="icon" type="image/svg" href="./images/favicon.svg">
-  <link rel="stylesheet" href="main/main.61cf47de9a05adf44ff1.css"> 
+  <link rel="stylesheet" href="main/main.ed2327b8f252d407c58a.css"> 
 </head>
 <body>
 <div class="root">
   <header class="header header_dark">
     <div class="header__wrapper root__section">
       <p class="header__logo header__logo_light">NewsExplorer</p>
-      <button class="header__menu-button header__menu-button_open header__menu-button_open_light"></button>
-      <ul class="header__nav">
+      <button class="header__menu-button header__menu-button_open_light"></button>
+      <ul class="header__nav header__nav_hidden-mobile">
         <li class="header__item">
           <a href="./" class="header__link header__link_light_active">Главная</a>
         </li>
@@ -26,7 +26,7 @@
           <button class="button header__button header__auth header__auth_light">Авторизоваться</button>
         </li>
         <li class="header__item header__item_not-active">
-          <button class="button header__button header__logout header__logout_light">Грета</button>
+          <button class="button header__button header__logout header__logout_light"></button>
         </li>
       </ul>
     </div>
@@ -42,130 +42,51 @@
           Находите самые свежие статьи на любую тему 
           и сохраняйте в своём личном кабинете.
         </p>
-        <form action="POST" class="search__form">
-          <input type="text" class="search__input" placeholder="Введите тему новости">
-          <button class="button search__button">Искать</button>
+        <form class="search__form" name="search">
+          <input type="text" class="search__input" name="search" minlength="2" maxlength="30" placeholder="Введите тему новости" id="search" required>
+          <button type="submit" class="button search__button" disabled>Искать</button>
+          <span class="search__error error" id="error-for-search"></span>
         </form>
       </div>
     </section>
 
-    <section class="articles">
-      <div class="preloader">
-        <span class="preloader__circle"></span>
-        <p class="preloader__text">
-          Идет поиск новостей...
-        </p>
-      </div>
+    <div class="preloader preloader_hidden">
+      <span class="preloader__circle"></span>
+      <p class="preloader__text">
+        Идет поиск новостей...
+      </p>
+    </div>
 
-      <div class="not-found">
-        <span class="not-found__icon"></span>
-        <p class="title not-found__title">
-          Ничего не найдено
-        </p>
-        <p class="not-found__text">
-          К сожалению по вашему запросу ничего не найдено.
-        </p>
-      </div>
+    <div class="not-found not-found_not-found-error not-found_hidden">
+      <span class="not-found__icon"></span>
+      <p class="title not-found__title">
+        Ничего не найдено
+      </p>
+      <p class="not-found__text">
+        К сожалению по вашему запросу ничего не найдено.
+      </p>
+    </div>
 
+    <div class="not-found not-found_server-error not-found_hidden">
+      <span class="not-found__icon"></span>
+      <p class="title not-found__title">
+        Во время запроса произошла ошибка
+      </p>
+      <p class="not-found__text">
+        Возможно, проблема с соединением или сервер недоступен. 
+        Подождите немного и попробуйте ещё раз.
+      </p>
+    </div>
+
+    <section class="articles articles_hidden">
       <div class="articles__section root__section">
         <h2 class="title articles__title">
           Результаты поиска
         </h2>
-        <div class="articles__wrapper">
-          <a class="article" href="https://meduza.io/shapito" target="_blank">
-            <div class="article__nav">
-              <img class="article__image" src="./images/article.jpg" alt="Изображение для новости">
-              <div class="article__tags">
-                <span class="article__tag article__tag_save"></span>
-                <span class="article__tag article__tag_message">
-                  Войдите, чтобы сохранять статьи
-                </span>
-              </div>
-            </div>
-            <div class="article__wrapper">
-              <div class="article__info">
-                <span class="article__date">
-                  2 августа, 2019
-                </span>
-                <h3 class="title article__title">
-                  Национальное достояние – парки
-                </h3>
-                <p class="article__text">
-                  В 2016 году Америка отмечала важный юбилей: 
-                  сто лет назад здесь начала складываться система национальных парков – 
-                  охраняемых территорий, 
-                  где и сегодня каждый может приобщиться к природе.
-                </p>
-              </div>
-              <span class="article__source">
-                Лента.ру
-              </span>
-            </div>
-          </a>
-          <a class="article" href="https://meduza.io/shapito" target="_blank">
-            <div class="article__nav">
-              <img class="article__image" src="./images/articletwo.jpg" alt="Изображение для новости">
-              <div class="article__tags">
-                <span class="article__tag article__tag_save"></span>
-                <span class="article__tag article__tag_message">
-                  Войдите, чтобы сохранять статьи
-                </span>
-              </div>
-            </div>
-            <div class="article__wrapper">
-              <div class="article__info">
-                <span class="article__date">
-                  2 августа, 2019
-                </span>
-                <h3 class="title article__title">
-                  Лесные огоньки: история одной фотографии
-                </h3>
-                <p class="article__text">
-                  Фотограф отвлеклась от освещения суровой политической 
-                  реальности Мексики, чтобы запечатлеть ускользающую 
-                  красоту одного из местных чудес природы.
-                </p>
-              </div>
-              <span class="article__source">
-                Медуза
-              </span>
-            </div>
-          </a>
-          <a class="article" href="https://meduza.io/shapito" target="_blank">
-            <div class="article__nav">
-              <img class="article__image" src="./images/articlethree.jpg" alt="Изображение для новости">
-              <div class="article__tags">
-                <span class="article__tag article__tag_save"></span>
-                <span class="article__tag article__tag_message">
-                  Войдите, чтобы сохранять статьи
-                </span>
-              </div>
-            </div>
-            <div class="article__wrapper">
-              <div class="article__info">
-                <span class="article__date">
-                  2 августа, 2019
-                </span>
-                <h3 class="title article__title">
-                  «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-                </h3>
-                <p class="article__text">
-                  Знаменитый фотограф снимает первозданные леса России, 
-                  чтобы рассказать о необходимости их сохранения. В
-                   этот раз он отправился в Двинско-Пинежскую тайгу, гдe
-                   Знаменитый фотограф
-                </p>
-              </div>
-              <span class="article__source">
-                Риа
-              </span>
-            </div>
-          </div>
-        </a>
-          <button class="button articles__more-button">
-            Показать еще
-          </button>
-      </div>
+        <div class="articles__wrapper"></div>
+        <button class="button articles__more-button">
+          Показать еще
+        </button>
     </section>
 
     <section class="author root__section">
@@ -207,10 +128,10 @@
     </div>
   </footer>
 
-  <div class="popup__wrapper">
-    <div class="popup popup__login">
-      <div class="popup__content popup__content_form">
+    <div class="popup">
+      <div class="popup__content">
         <button class="popup__close"></button>
+<<<<<<< HEAD
         <h3 class="popup__title">
           Вход
         </h3>
@@ -224,53 +145,70 @@
           <button class="button popup__button" disabled>Войти</button>
         </form>
         <p class="popup__text">или
-          <button class="popup__link">Зарегистрироваться</button>
+          <button class="popup__link popup__registration-button">Зарегистрироваться</button>
         </p>
       </div>
     </div>
+=======
+        <div class="popup__inner">
 
-    <div class="popup popup__registration">
-      <div class="popup__content popup__content_form">
-        <button class="popup__close"></button>
-        <h3 class="popup__title">
-          Регистрация
-        </h3>
-        <form action="POST" class="popup__form">
-          <label class="popup__label" for="registration-email">Email</label>
-          <input class="popup__input" type="email" placeholder="Введите почту" id="registration-email" required>
-          <span class="popup__error popup__error_input"></span>
-          <label class="popup__label" for="registration-password">Пароль</label>
-          <input class="popup__input" type="password" placeholder="Введите пароль" minlength="8" id="registration-password" required>
-          <span class="popup__error popup__error_input"></span>
-          <label class="popup__label" for="registration-name">Имя</label>
-          <input class="popup__input" type="text" placeholder="Введите свое имя" minlength="2" maxlength="30" id="registration-name" required>
-          <span class="popup__error popup__error_input"></span>
-          <span class="popup__error popup__error_common"></span>
-          <button class="button popup__button" disabled>
-            Зарегистрироваться
-          </button>
-        </form>
-        <p class="popup__text">или
-          <button class="popup__link">Войти</button>
-        </p>
-      </div>
-    </div>
+          <div class="popup__login popup-box popup_hidden">
+            <h3 class="popup__title">
+              Вход
+            </h3>
+            <form class="popup__form" method="POST" name="login">
+              <label class="popup__label" for="enter-email">Email</label>
+              <input class="popup__input" type="email" placeholder="Введите почту" id="enter-email" name="email" pattern="^[\w\.]+@[\w-]+\.[a-z]{2,}$" required>
+              <span class="popup__error popup__error_input error" id="error-for-enter-email"></span>
+              <label class="popup__label" for="enter-password">Пароль</label>
+              <input class="popup__input" type="password" placeholder="Введите пароль" id="enter-password" name="password" required>
+              <span class="popup__error popup__error_input error" id="error-for-enter-password"></span>
+              <span class="popup__error popup__error_common popup__error_common_login"></span>
+              <button type="submit" class="button popup__button" disabled>Войти</button>
+            </form>
+          </div>
 
-    <div class="popup popup__success">
-      <div class="popup__content popup__content_success">
-        <button class="popup__close"></button>
-        <div class="success">
-          <h3 class="success__title">
-            Пользователь успешно зарегистрирован!
-          </h3>
-          <button class="success__link">
-            Выполнить вход
-          </button>
+          <div class="popup__registration popup-box popup_hidden">
+            <h3 class="popup__title">
+              Регистрация
+            </h3>
+            <form class="popup__form popup__form_registration" name="reg">
+              <label class="popup__label" for="registration-email">Email</label>
+              <input class="popup__input" type="email" placeholder="Введите почту" name="email" id="registration-email" pattern="^[\w\.]+@[\w-]+\.[a-z]{2,}$" required>
+              <span class="popup__error popup__error_input error" id="error-for-registration-email"></span>
+              <label class="popup__label" for="registration-password">Пароль</label>
+              <input class="popup__input" type="password" placeholder="Введите пароль" name="password" minlength="8" id="registration-password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$" required>
+              <span class="popup__error popup__error_input error" id="error-for-registration-password"></span>
+              <label class="popup__label" for="registration-name">Имя</label>
+              <input class="popup__input" type="text" placeholder="Введите свое имя" name="name" minlength="2" maxlength="30" id="registration-name" required>
+              <span class="popup__error popup__error_input error" id="error-for-registration-name"></span>
+              <span class="popup__error popup__error_common popup__error_common_reg"></span>
+              <button type="submit" class="button popup__button" disabled>
+                Зарегистрироваться
+              </button>
+            </form>
+          </div>
         </div>
+
+        <div class="popup__success popup-box popup_hidden">
+          <div class="success">
+            <h3 class="success__title">
+              Пользователь успешно зарегистрирован!
+            </h3>
+          </div>
+        </div>
+>>>>>>> level-3
+
+        <p class="popup__text">или
+          <button class="popup__link popup__link_hidden popup__auth-button">Войти</button>
+          <button class="popup__link popup__link_hidden popup__reg-button">Зарегистрироваться</button>
+          <button class="success__link popup__link_hidden popup__reg-success-button">Выполнить вход</button>
+        </p>
       </div>
     </div>
-  </div>
+    </div>
+ 
 </div>
-    <script src="main/main.19a631517f6d367c6073.js"></script>
+    <script src="main/main.7a9f38235197b13cdd0d.js"></script>
 </body>
 </html>
