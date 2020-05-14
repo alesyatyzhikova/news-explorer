@@ -9,7 +9,6 @@
 
 @media screen and (max-width: 767px) {
   .header__nav {
-    display: none;
     position: absolute;
     background-color: #1A1B22;
     width: 100%;
@@ -30,5 +29,9 @@
     background-color: rgba(255, 255, 255, 0.2);
     top: 56px;
     left: 0;
+  }
+
+  .header__nav_hidden-mobile {
+    display: none;
   }
 }

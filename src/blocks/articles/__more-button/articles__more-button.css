@@ -15,6 +15,10 @@
   background-color: #fff;
 }
 
+.articles__more-button.articles__more-button_hidden {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .articles__more-button {
     width: 240px;

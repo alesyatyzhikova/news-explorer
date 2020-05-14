@@ -1,51 +1,91 @@
-import Popup from '../components/Popup';
-
-const popupReg = new Popup(document.querySelector('.popup__registration'), document.querySelector('.popup'));
-
 export default class MainApi {
   constructor(options) {
     this.url = options.url;
-    this.header = options.header;
   }
 
-  editProfile(path) {
-    return fetch(`${this.url}${path}`, {
-        method: 'POST',
-        headers: this.headers,
-        body: JSON.stringify({
-            name: popupReg.form.elements.name.value,
-            about: popupReg.form.elements.email.value
-        })
-    })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res}`);
-        })
-        .catch(err => {
-            console.log(`Ошибка: ${err}`)
-        })
-}
-
-  regAccount(path) {
+  registration(path, name, email, password) {
     return fetch(`${this.url}${path}`, {
       method: 'POST',
-      headers: this.headers,
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        name: popupReg.form.elements.name.value,
-        email: popupReg.form.elements.email.value,
-        password: popupReg.form.elements.password.value,
+        name,
+        email,
+        password,
       })
     })
-    .then(res => {
-      if(res.ok) {
-        return res.json();
-      }
-      return Promise.reject(res);
+  }
+
+  login(path, email, password) {
+    return fetch(`${this.url}${path}`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      })
     })
+  }
+
+  getUserData(path) {
+    return fetch(`${this.url}${path}`, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      credentials: 'include',
+    })
+    .then(res => res.json())
+  }
+
+  createArticle(path, event) {
+    return fetch(`${this.url}${path}`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        keyword: document.forms.search.elements.search.value,
+        title: event.target.closest('.article').querySelector('.article__title').innerHTML,
+        text: event.target.closest('.article').querySelector('.article__text').innerHTML,
+        date: event.target.closest('.article').querySelector('.article__date').innerHTML,
+        source: event.target.closest('.article').querySelector('.article__source').innerHTML,
+        link: event.target.closest('.article').href,
+        image: event.target.closest('.article').querySelector('.article__image').src,
+      })
+    })
+      .then(res => res.json())
+      .catch((err) => {
+        console.log('Ошибка', err.status)
+      })
+  }
+
+  getInitialCards(path) {
+    return fetch(`${this.url}${path}`, {
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+    .then(res => res.json())
+  }
+
+  removeArticle(path, event) {
+    return fetch(`${this.url}${path}`, {
+      method: 'DELETE',
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+    .then(res => res.text())
     .catch(err => {
-      console.log(err)
+        console.log(`Ошибка: ${err.status}`)
     })
   }
 }

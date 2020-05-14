@@ -7,7 +7,6 @@ export default class Popup {
 
   clearContent() {
     this.content.classList.add('popup_hidden')
-    // this.container.querySelector('.popup__content .popup__inner').innerHTML = '';
     
   }
 
@@ -17,5 +16,9 @@ export default class Popup {
 
   open() {
     this.container.classList.add('popup_opened');
+  }
+
+  close() {
+    this.container.classList.remove('popup_opened');
   }
 }

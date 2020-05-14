@@ -1,4 +1,4 @@
-.header__menu-button_open_light:after {
+.header__menu-button_close_light:after {
   content: "";
   position: absolute;
   width: 24px;
@@ -6,5 +6,5 @@
   background-repeat: no-repeat;
   background-position: center;
   right: 0;
-  background-image: url(../../../../../images/menu-open.svg);
+  background-image: url(../../../../../images/close.svg);
 }

@@ -3,9 +3,3 @@
   margin-bottom: 16px;
   margin-top: 8px;
 }
-
-.popup__button:disabled {
-  background-color: #e6e8eb;
-  color: #b6bcbf;
-  cursor: auto;
-}

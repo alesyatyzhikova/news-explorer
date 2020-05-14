@@ -1,6 +1,7 @@
 @import url('./__title/articles__title.css');
 @import url('./__wrapper/articles__wrapper.css');
-@import url('./__more-button/articles__more-button.css')
+@import url('./__more-button/articles__more-button.css');
+@import url('./_hidden/articles_hidden.css');
 ;
 .articles {
   font-family: 'Roboto', 'Arial', sans-serif;

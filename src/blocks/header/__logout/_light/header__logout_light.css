@@ -14,3 +14,14 @@
   right: 10px;
   top: 17px;
 }
+
+@media screen and (max-width: 767px) {
+  .header__logout_light {
+    width: 100%;
+  }
+
+  .header__logout_light:before {
+    right: 35%;
+    top: 20px;
+  }
+}

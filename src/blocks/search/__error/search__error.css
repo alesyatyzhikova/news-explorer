@@ -1,0 +1,9 @@
+.search__error {
+  color: #ff0000;
+  margin-left: 20px;
+  margin-top: 5px;
+  display: block;
+  font-size: 12px;
+  line-height: 15px;
+  height: 14px;
+}

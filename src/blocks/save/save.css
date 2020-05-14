@@ -8,6 +8,10 @@
   padding-bottom: 56px;
 }
 
+.save_hidden {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .save {
     padding-top: 90px;

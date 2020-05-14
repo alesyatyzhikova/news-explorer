@@ -41,6 +41,7 @@
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
+    "newsapi": "^2.4.0",
     "babel-polyfill": "6.26.0",
     "core-js": "3.4.1"
   }

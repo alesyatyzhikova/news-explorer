@@ -1,0 +1,7 @@
+.article__tag_save-not-auth:hover + .article__tag_message {
+  display: block;
+}
+
+.article__tag_save-not-auth:active + .article__tag_message {
+  display: block;
+}
