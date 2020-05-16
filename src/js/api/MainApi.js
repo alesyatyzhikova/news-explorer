@@ -1,3 +1,5 @@
+const commonRegError = document.querySelector('.popup__error_common_reg');
+
 export default class MainApi {
   constructor(options) {
     this.url = options.url;
@@ -17,7 +19,7 @@ export default class MainApi {
     })
   }
 
-  login(path, email, password) {
+  auth(path, email, password) {
     return fetch(`${this.url}${path}`, {
       method: 'POST',
       headers: {
@@ -39,7 +41,6 @@ export default class MainApi {
       },
       credentials: 'include',
     })
-    .then(res => res.json())
   }
 
   createArticle(path, event) {
@@ -59,20 +60,16 @@ export default class MainApi {
         image: event.target.closest('.article').querySelector('.article__image').src,
       })
     })
-      .then(res => res.json())
-      .catch((err) => {
-        console.log('Ошибка', err.status)
-      })
   }
 
   getInitialCards(path) {
     return fetch(`${this.url}${path}`, {
+      method: 'GET',
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
-    .then(res => res.json())
   }
 
   removeArticle(path, event) {
@@ -82,10 +79,6 @@ export default class MainApi {
         "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
-    })
-    .then(res => res.text())
-    .catch(err => {
-        console.log(`Ошибка: ${err.status}`)
     })
   }
 }

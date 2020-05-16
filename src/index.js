@@ -1,6 +1,7 @@
 import './index.css';
 
 import renderLoading from './js/utils/loading';
+import clickArticle from './js/utils/removeAndCreate';
 import { getDateForApi } from './js/utils/date';
 import { mainMenu } from './js/utils/openMenu';
 
@@ -102,17 +103,21 @@ regButton.addEventListener('click', registration);
 //Регистрация
   popupReg.form.addEventListener('submit', function (event) {
    event.preventDefault();
-   registrationFormClass.lockButton(event.currentTarget); 
+   registrationFormClass.lockInputs(event.currentTarget);
+   registrationFormClass.lockButton(event.currentTarget);
+  
    api.registration('/signup', 
                     popupReg.form.elements.name.value, 
                     popupReg.form.elements.email.value,
                     popupReg.form.elements.password.value)
     .then(res => {
       if(res.ok) {
-        return res.text();
-      }
-      commonRegError.textContent = 'Такой Email уже существует';
-      return Promise.reject(`Ошибка: ${res.status}`);
+       return res.json()
+      } else if (res.status === 409) {
+        return Promise.reject('Такой email уже существует')
+      } else {
+        return Promise.reject('Сервер не отвечает')
+      }  
     })
     .then(() => {
       popupReg.clearContent()
@@ -120,23 +125,30 @@ regButton.addEventListener('click', registration);
       regButton.classList.add('popup__link_hidden')
       authButton.classList.remove('popup__link_hidden')
     })
-    .catch(err => console.log(err))
-    registrationFormClass.lockButton(event.currentTarget); 
+    .catch(err => commonRegError.textContent = err)
+    .finally(() => {
+      registrationFormClass.unlockButton(event.target);
+      registrationFormClass.unlockInputs(event.target);
+    })
   })
 
   // Аутентификация
   popupAuth.form.addEventListener('submit', function (event) {
     event.preventDefault();
-    api.login('/signin', popupAuth.form.elements.email.value, popupAuth.form.elements.password.value)
+    loginFormClass.lockButton(event.currentTarget);
+    loginFormClass.lockInputs(event.currentTarget);
+    api.auth('/signin', popupAuth.form.elements.email.value, popupAuth.form.elements.password.value)
     .then(res => {
       if(res.ok) {
-        return res.text();
-      }
-      commonAuthError.textContent = 'Неправильные почта или пароль';
-      return Promise.reject(`Ошибка: ${res.status}`);
+       return res.json()
+      } else if (res.status === 400) {
+        return Promise.reject('Неправильные почта или пароль')
+      } else {
+        return Promise.reject('Сервер не отвечает')
+      }  
     })
     .then(res => {
-      localStorage.setItem("token", res)
+      localStorage.setItem("token", res.token)
       localStorage.setItem("header", header.isLoggedIn)
       header.render();
       popupReg.clearContent();
@@ -145,6 +157,12 @@ regButton.addEventListener('click', registration);
     .then(() => {
       article.renderIconAuth();
       api.getUserData('/users/me')
+      .then(res => {
+        if(res.ok) {
+          return res.json()
+        }
+        return Promise.reject(res)
+      })
       .then((res) => {
         localStorage.setItem("name", res.name)
         headerLogoutButton.textContent = res.name
@@ -154,76 +172,57 @@ regButton.addEventListener('click', registration);
         console.log('Ошибка', err.status)
       })
      })
-    .catch(err => console.log(err)) 
+    .catch(err => commonAuthError.textContent = err) 
+    .finally(() => {
+      loginFormClass.unlockButton(event.target);
+      loginFormClass.unlockInputs(event.target)
+    })
    })
+
 
 // Поиск
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  searchFormClass.lockButton(e.currentTarget);
+  searchFormClass.lockInputs(e.currentTarget);
   renderLoading(true);
+  articlesWrapper.removeEventListener('click', clickArticle);
 
   const dateFrom = new Date().toISOString().substr(0, 10);
   const dateTo = getDateForApi(7);
   const pageSize = 100;
-  const newsApi = new NewsApi({ q: searchForm.elements.search.value, from: dateFrom, to: dateTo, pageSize: pageSize })
+  const newsApi = new NewsApi({ q: searchForm.elements.search.value, from: dateFrom, to: dateTo, pageSize: pageSize });
 
   newsApi.getNews()
-    .then(res => res.json())
     .then(res => {
-      const array = new NewsCardList(res.articles, wrapper);
+      if(res.ok) {
+        return res.json()
+      }
+      return Promise.reject(res)
+    })
+    .then(res => {
+      
+      const array = new NewsCardList(res.articles, wrapper, 3);
       array.clear();
       array.renderResults();
       
-
       if(logged) {
         article.renderIconAuth();  
       }
 
-      moreButton.addEventListener('click', (e) => {
-        array.renderResults();
-
-        if(logged) {
-          article.renderIconAuth()   
-        }
-
-        if(res.articles.length === 0) { 
-          e.target.classList.add('articles__more-button_hidden')
-        }
-      })     
+      moreButton.addEventListener('click', array.renderResults.bind(array));   
     })
     .then(() => {
-      articlesWrapper.addEventListener('click', (event) => {
-        if(event.target.classList.contains('article__tag_save-not-auth')) {
-          event.preventDefault();
-          }
-
-        if(event.target.classList.contains('article__tag_saved')) {
-          event.preventDefault();
-
-          article.renderIconForDelete(event)
-           api.removeArticle(`/articles/${event.target.closest('.article').id}`, event)
-           .then(() =>   event.target.classList.add('article__tag_for-save'))
-          }
-
-        if(event.target.classList.contains('article__tag_for-save')) {
-          event.preventDefault();
-
-          api.createArticle('/articles', event)
-          .then((res) => {
-            const createdArticle = event.target.closest('.article');
-            createdArticle.id = res.data.id;
-          })
-
-          article.renderIconForSave(event)
-        } 
-      }) 
+      articlesWrapper.addEventListener('click', clickArticle);   
     })
     .catch(() => {
-      serverErrorBlock.classList.remove('not-found_hidden')
+      serverErrorBlock.classList.remove('not-found_hidden');
     })
     .finally(() => {
-      renderLoading(false)
-    })  
+      renderLoading(false);
+      searchFormClass.unlockButton(e.target);
+      searchFormClass.unlockInputs(e.target);
+    }) 
 })
 
 // Закрытие попапа
@@ -231,7 +230,7 @@ document.querySelector('.popup__close').addEventListener('click', (e) => {
   popup.classList.remove('popup_opened');
 })
 
-document.addEventListener('click', (e) => {
+document.addEventListener('mousedown', (e) => {
   if (e.target.classList.contains('popup')) {
     popup.classList.remove('popup_opened');
   }

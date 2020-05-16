@@ -76,7 +76,15 @@ export default class Form {
     event.querySelector('button').setAttribute('disabled', true);
   }
 
+  lockInputs(event) {
+    event.querySelectorAll('input').forEach(item => item.setAttribute('disabled', true));
+  }
+
   unlockButton(event) {
     event.querySelector('button').removeAttribute('disabled');
+  }
+
+  unlockInputs(event) {
+    event.querySelectorAll('input').forEach(item => item.removeAttribute('disabled'));
   }
 }
