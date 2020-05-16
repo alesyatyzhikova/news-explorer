@@ -178,19 +178,19 @@ regButton.addEventListener('click', registration);
       loginFormClass.unlockInputs(event.target)
     })
    })
-
-
-// Поиск
-searchForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+ 
+function searchNews(e) {
+    e.preventDefault();
   searchFormClass.lockButton(e.currentTarget);
   searchFormClass.lockInputs(e.currentTarget);
   renderLoading(true);
+
   articlesWrapper.removeEventListener('click', clickArticle);
+   
 
   const dateFrom = new Date().toISOString().substr(0, 10);
   const dateTo = getDateForApi(7);
-  const pageSize = 100;
+  const pageSize = 10;
   const newsApi = new NewsApi({ q: searchForm.elements.search.value, from: dateFrom, to: dateTo, pageSize: pageSize });
 
   newsApi.getNews()
@@ -201,19 +201,18 @@ searchForm.addEventListener('submit', (e) => {
       return Promise.reject(res)
     })
     .then(res => {
-      
       const array = new NewsCardList(res.articles, wrapper, 3);
       array.clear();
       array.renderResults();
-      
+
       if(logged) {
         article.renderIconAuth();  
       }
-
-      moreButton.addEventListener('click', array.renderResults.bind(array));   
+        
+      moreButton.addEventListener('click', array.renderResults.bind(array));
     })
-    .then(() => {
-      articlesWrapper.addEventListener('click', clickArticle);   
+    .then((res) => {
+      articlesWrapper.addEventListener('click', clickArticle); 
     })
     .catch(() => {
       serverErrorBlock.classList.remove('not-found_hidden');
@@ -223,7 +222,12 @@ searchForm.addEventListener('submit', (e) => {
       searchFormClass.unlockButton(e.target);
       searchFormClass.unlockInputs(e.target);
     }) 
-})
+    e.target.removeEventListener('submit', searchNews)
+  }
+
+  // Поиск
+  searchForm.addEventListener('submit', searchNews)
+
 
 // Закрытие попапа
 document.querySelector('.popup__close').addEventListener('click', (e) => {

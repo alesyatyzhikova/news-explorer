@@ -30,6 +30,7 @@ export default class NewsCardList {
         firstArticles.forEach(content => {
           this.container.insertAdjacentHTML('beforeend', article.create(content));
           this.clickMoreButton();
+          
 
           if(logged) {
             article.renderIconAuth();
