@@ -179,14 +179,14 @@ regButton.addEventListener('click', registration);
     })
    })
  
-function searchNews(e) {
-    e.preventDefault();
+// Поиск
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
   searchFormClass.lockButton(e.currentTarget);
   searchFormClass.lockInputs(e.currentTarget);
   renderLoading(true);
 
-  articlesWrapper.removeEventListener('click', clickArticle);
-   
+  articlesWrapper.removeEventListener('click', clickArticle); 
 
   const dateFrom = new Date().toISOString().substr(0, 10);
   const dateTo = getDateForApi(7);
@@ -201,15 +201,17 @@ function searchNews(e) {
       return Promise.reject(res)
     })
     .then(res => {
+     
       const array = new NewsCardList(res.articles, wrapper, 3);
-      array.clear();
       array.renderResults();
+      array.clear();
 
       if(logged) {
         article.renderIconAuth();  
       }
-        
-      moreButton.addEventListener('click', array.renderResults.bind(array));
+       
+      moreButton.addEventListener('click', array.renderResults.bind(array)); 
+    
     })
     .then((res) => {
       articlesWrapper.addEventListener('click', clickArticle); 
@@ -220,14 +222,9 @@ function searchNews(e) {
     .finally(() => {
       renderLoading(false);
       searchFormClass.unlockButton(e.target);
-      searchFormClass.unlockInputs(e.target);
+      searchFormClass.unlockInputs(e.target); 
     }) 
-    e.target.removeEventListener('submit', searchNews)
-  }
-
-  // Поиск
-  searchForm.addEventListener('submit', searchNews)
-
+})
 
 // Закрытие попапа
 document.querySelector('.popup__close').addEventListener('click', (e) => {
