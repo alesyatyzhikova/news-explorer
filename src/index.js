@@ -191,7 +191,7 @@ searchForm.addEventListener('submit', (e) => {
 
   const dateFrom = new Date().toISOString().substr(0, 10);
   const dateTo = getDateForApi(7);
-  const pageSize = 10;
+  const pageSize = 100;
   const newsApi = new NewsApi({ q: searchForm.elements.search.value, from: dateFrom, to: dateTo, pageSize: pageSize });
 
   newsApi.getNews()
