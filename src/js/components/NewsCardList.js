@@ -24,13 +24,12 @@ export default class NewsCardList {
 
   renderResults() {
     const article = new NewsCard();
-   
+    
     this.render();
     const firstArticles = this.array.splice(0, this.firstNumberArticles);
         firstArticles.forEach(content => {
           this.container.insertAdjacentHTML('beforeend', article.create(content));
           this.clickMoreButton();
-          
 
           if(logged) {
             article.renderIconAuth();
@@ -40,7 +39,6 @@ export default class NewsCardList {
 
   renderSavedResults() {
     const article = new NewsCard();
-    
     this.array.forEach(card => {
       this.container.insertAdjacentHTML('beforeend', article.createSave(card));
       

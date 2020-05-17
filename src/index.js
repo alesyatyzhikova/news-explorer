@@ -42,8 +42,9 @@ const authButton = document.querySelector('.popup__auth-button');
 const regSuccessButton = document.querySelector('.popup__reg-success-button');
 const headerAuthButton = document.querySelector('.header__auth');
 const headerLogoutButton = document.querySelector('.header__logout');
-const moreButton = document.querySelector('.articles__more-button');
 const menuButton = document.querySelector('.header__menu-button');
+const moreButton = document.querySelector('.articles__more-button');
+let moreButtonListener;
 
 
 const wrapper = document.querySelector('.articles__wrapper');
@@ -203,17 +204,19 @@ searchForm.addEventListener('submit', (e) => {
     .then(res => {
      
       const array = new NewsCardList(res.articles, wrapper, 3);
-      array.renderResults();
       array.clear();
+      array.renderResults();
 
       if(logged) {
         article.renderIconAuth();  
       }
        
-      moreButton.addEventListener('click', array.renderResults.bind(array)); 
+      moreButton.removeEventListener('click', moreButtonListener);
+      moreButtonListener = array.renderResults.bind(array);
+      moreButton.addEventListener('click', moreButtonListener); 
     
     })
-    .then((res) => {
+    .then(() => {
       articlesWrapper.addEventListener('click', clickArticle); 
     })
     .catch(() => {
@@ -242,7 +245,6 @@ document.addEventListener('keydown', (e) => {
     popup.classList.remove('popup_opened');
   }
 })
-
 
 // Разлогиниться
 headerLogoutButton.addEventListener('click', () => {
