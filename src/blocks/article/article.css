@@ -1,0 +1,38 @@
+@import url('./__title/article__title.css');
+@import url('./__date/article__date.css');
+@import url('./__nav/article__nav.css');
+@import url('./__image/article__image.css');
+@import url('./__info/article__info.css');
+@import url('./__source/article__source.css');
+@import url('./__text/article__text.css');
+@import url('./__wrapper/article__wrapper.css');
+@import url('./__tag/article__tag.css');
+@import url('./__tags/article__tags.css');
+
+.article {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background-color: #fff;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  text-decoration: none;
+  color: inherit;
+}
+
+.article:hover {
+  cursor: pointer;
+  box-shadow: 0 0 18px 0 rgba(8, 29, 45, 0.1);;
+}
+
+@media screen and (max-width: 1024px) {
+  .article {
+    width: 224px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .article {
+    width: 288px;
+  }
+}

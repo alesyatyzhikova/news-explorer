@@ -1,0 +1,11 @@
+@import url('./_active/header__link_dark_active.css');
+
+.header__link_dark {
+  color: #1a1b22;
+}
+
+@media screen and (max-width: 767px) {
+  .header__link_dark {
+    color: #fff;
+  }
+}

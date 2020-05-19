@@ -1,0 +1,27 @@
+.header__logout_light {
+  color: #fff;
+  border: 1px solid #fff;
+  position: relative;
+}
+
+.header__logout_light:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-image: url(../../../../images/logout-light.svg);
+  right: 10px;
+  top: 17px;
+}
+
+@media screen and (max-width: 767px) {
+  .header__logout_light {
+    width: 100%;
+  }
+
+  .header__logout_light:before {
+    right: 35%;
+    top: 20px;
+  }
+}

@@ -1,0 +1,25 @@
+.root__section {
+  width: 100%;
+  max-width: 1440px;
+  padding-left: 104px;
+  padding-right: 104px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .root__section {
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .root__section {
+    padding-left: 16px;
+    padding-right: 16px;
+    min-width: 288px;
+  }
+}
+

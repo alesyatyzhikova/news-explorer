@@ -1,0 +1,11 @@
+.article__tag_save {
+  background-image: url(../../../../images/save.svg);
+  background-size: 14px 19px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+}
+
+.article__tag_save:hover {
+  background-image: url(../../../../images/save-hover.svg);
+}

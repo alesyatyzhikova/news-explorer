@@ -1,0 +1,10 @@
+.article__source {
+  font-family: 'Roboto Slab', 'Georgia', serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #b6bcbf;
+  text-transform: uppercase;
+  display: block;
+  margin-top: auto;
+}

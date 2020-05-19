@@ -1,0 +1,11 @@
+@import url('./__text/preloader__text.css');
+@import url('./__circle/preloader__circle.css');
+@import url('./_hidden/preloader_hidden.css');
+
+.preloader {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  background-color: #f5f6f7;
+  padding: 80px 0;
+  position: relative;
+  margin: 0 auto;
+}

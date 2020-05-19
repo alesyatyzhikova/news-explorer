@@ -1,0 +1,28 @@
+.button {
+  background-color: #2F71E5;
+  border-radius: 100px;
+  border: none;
+  text-align: center;
+  font-family: 'Roboto';
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #fff;
+  padding: 18px 53px 21px;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  background-color: #347EFF;
+}
+
+.button:focus {
+  background-color: #2A65CC;
+}
+
+.button:disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  cursor: auto;
+}

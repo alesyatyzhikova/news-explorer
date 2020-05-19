@@ -1,0 +1,12 @@
+@import url('./_not-active/header__item_not-active.css');
+
+.header__item {
+  margin-right: 34px;
+}
+
+@media screen and (max-width: 767px) {
+  .header__item {
+    width: 100%;
+    max-width: 288px;
+  }
+}

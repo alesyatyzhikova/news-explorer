@@ -1,0 +1,10 @@
+.header__link_light_active {
+  border-bottom: 3px solid #fff;
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .header__link_light_active {
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,15 @@
+.header__auth {
+  padding: 11px 12px 15px 12px;
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+
+.header__auth:hover {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 767px) {
+  .header__auth {
+    width: 100%;
+  }
+}

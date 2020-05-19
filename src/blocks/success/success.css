@@ -1,0 +1,6 @@
+@import url('./__link/success__link.css');
+@import url('./__title/success__title.css');
+
+.success {
+  font-family: 'Roboto', 'Arial', sans-serif;
+}

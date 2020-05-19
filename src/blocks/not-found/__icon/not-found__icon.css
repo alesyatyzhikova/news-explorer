@@ -1,0 +1,9 @@
+.not-found__icon {
+  background-image: url(../../../images/not-found.svg);
+  background-repeat: no-repeat;
+  width: 96px;
+  height: 96px;
+  display: block;
+  margin: auto;
+  margin-bottom: 24px;
+}

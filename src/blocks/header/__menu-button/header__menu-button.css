@@ -1,0 +1,17 @@
+@import url('./_close/header__menu-button_close.css');
+@import url('./_open/header__menu-button_open.css');
+
+.header__menu-button {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .header__menu-button {
+    display: block;
+    position: relative;
+    width: 24px;
+    z-index: 20;
+    border: none;
+    background-color: transparent;
+  }
+}

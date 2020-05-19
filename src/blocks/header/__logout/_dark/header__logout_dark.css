@@ -1,0 +1,38 @@
+.header__logout_dark {
+  color: #1a1b22;
+  border: 1px solid #d1d2d6;
+  position: relative;
+}
+
+.header__logout_dark:hover {
+  border: 1px solid #1a1b22;
+}
+
+.header__logout_dark:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-image: url(../../../../images/logout.svg);
+  right: 10px;
+  top: 17px;
+}
+
+@media screen and (max-width: 767px) {
+  .header__logout_dark {
+    color: #fff;
+    border: 1px solid #fff;
+    width: 100%;
+  }
+
+  .header__logout_dark:hover {
+    border: 1px solid #fff;
+  }
+
+  .header__logout_dark:before {
+    background-image: url(../../../../images/logout-light.svg);
+    top: 20px;
+    right: 35%;
+  }
+}

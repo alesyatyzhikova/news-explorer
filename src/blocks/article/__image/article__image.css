@@ -1,0 +1,23 @@
+.article__image {
+  width: 400px;
+  height: 272px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+  .article__image {
+    height: 150px;
+    width: 224px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .article__image {
+    width: 288px;
+    height: 196px;
+  }
+}

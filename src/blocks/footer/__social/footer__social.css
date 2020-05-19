@@ -1,0 +1,22 @@
+@import url('./_facebook/footer__social_facebook.css');
+@import url('./_github/footer__social_github.css');
+
+.footer__social {
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 28px;
+}
+
+.footer__social:last-child {
+  margin-right: 0;
+}
+
+.footer__social::before {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}

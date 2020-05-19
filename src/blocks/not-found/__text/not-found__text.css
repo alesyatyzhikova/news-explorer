@@ -1,0 +1,9 @@
+.not-found__text {
+  max-width: 336px;
+  text-align: center;
+  margin: auto;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #b6bcbf;
+}

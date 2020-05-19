@@ -1,0 +1,10 @@
+@import url('./_common/popup__error_common.css');
+@import url('./_input/popup__error_input.css');
+
+.popup__error {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  display: block;
+  height: 14px;
+}

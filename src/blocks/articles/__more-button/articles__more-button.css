@@ -1,0 +1,32 @@
+.articles__more-button {
+  width: 288px;
+  background-color: #fff;
+  border-radius: 80px;
+  color: #1a1b22;
+  display: block;
+  margin: 0 auto;
+}
+
+.articles__more-button:hover {
+  background-color: #E6E8EB;
+}
+
+.articles__more-button:focus {
+  background-color: #fff;
+}
+
+.articles__more-button.articles__more-button_hidden {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .articles__more-button {
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .articles__more-button {
+    width: 288px;
+  }
+}

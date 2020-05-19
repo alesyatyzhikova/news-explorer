@@ -1,0 +1,10 @@
+@import url('./__text/not-found__text.css');
+@import url('./__icon/not-found__icon.css');
+@import url('./__title/not-found__title.css');
+@import url('./_hidden/not-found_hidden.css');
+
+.not-found {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  background-color: #f5f6f7;
+  padding: 80px 0;
+}
