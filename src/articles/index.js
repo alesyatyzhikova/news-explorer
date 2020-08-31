@@ -8,7 +8,7 @@ import NewsCard from '../js/components/NewsCard';
 import NewsCardList from '../js/components/NewsCardList';
 
 const api = new MainApi({
-  url: 'https://api.explorer-news.tk',
+  url: 'https://api-praktikum.ru',
 })
 
 const wrapper = document.querySelector('.articles__wrapper_saved');
