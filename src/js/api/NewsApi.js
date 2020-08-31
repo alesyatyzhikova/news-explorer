@@ -10,6 +10,6 @@ export default class NewsApi {
   }
 
   getNews() {
-    return fetch(`https://cors-anywhere.herokuapp.com/newsapi.org/v2/everything?q=${this.q}&language=ru&from=${this.from}&to=${this.to}&pageSize=${this.pageSize}&apiKey=${newsapi}`)
+    return fetch(`http://newsapi.org/v2/everything?q=${this.q}&language=ru&from=${this.from}&to=${this.to}&pageSize=${this.pageSize}&apiKey=${newsapi}`)
   }
 }
