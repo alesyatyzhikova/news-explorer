@@ -54,7 +54,7 @@ const serverErrorBlock = document.querySelector('.not-found_server-error');
 
 // API
 const api = new MainApi({
-  url: 'https://api.explorer-news.tk',
+  url: 'https://api-praktikum.ru',
 })
 
 const header = new Header({ isLoggedIn: true, userName: document.forms.login.elements.name })
